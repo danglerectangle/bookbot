@@ -1,2 +1,6 @@
-#data
-books
+#data directory
+books/
+
+#cache directory
+__pycache__/
+*.pyc

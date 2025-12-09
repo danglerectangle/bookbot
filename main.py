@@ -1,5 +1,5 @@
 from stats import get_num_words
-form stats import get_num_char
+from stats import get_num_char
 
 def get_book_text(path_to_file):
     with open(path_to_file) as f:
@@ -10,5 +10,6 @@ def main():
     book_path = "books/frankenstein.txt"
     text = get_book_text(book_path)
     get_num_words(text)
+    get_num_char(text)
 
 main()
