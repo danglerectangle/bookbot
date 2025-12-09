@@ -2,7 +2,6 @@ words_to_count = [] # populated by get_num_words #
 chars_to_count = [] # populated by get_num_char #
 chars_count_dict = {} # populated by get_num_char #
 list_of_char_dict = [] # populated by make_list_of_char_dict #
-sorted_list_of_char_dict = []
 test_list_words = ["HELLO", "world"] # test list of strings for debugging #
 
 def get_num_words(book_text_string): # takes book text string, converts to list of strings, prints count of string length # 
@@ -10,7 +9,7 @@ def get_num_words(book_text_string): # takes book text string, converts to list 
     
     print(f"Found {len(words_to_count)} total words")
 
-def get_num_char(book_text_list): # takes list of strings, returns a dictionary: {"a": 23, "b": 4, ...} #
+def get_num_char(book_text_list): # takes list of strings, returns a dictionary: {"a": 4, "b": 23, ...} #
     for word in book_text_list:
         for i in word:
             lower_char = str.lower(i)
@@ -24,7 +23,7 @@ def get_num_char(book_text_list): # takes list of strings, returns a dictionary:
     
     return chars_count_dict
 
-def make_list_of_char_dict(book_text_list): # takes a list of strings, prints a formatted list of dicts: [{"char": a, "num": 23}, {"char": b, "num": 4}, ...] # 
+def make_list_of_char_dict(book_text_list): # takes a list of strings, makes a formatted list of dicts, then sorts them in descending order and returns it: [{"char": b, "num": 23}, {"char": a, "num": 4}, ...] # 
     get_num_char(book_text_list)
 
     for i in chars_count_dict:
@@ -33,17 +32,9 @@ def make_list_of_char_dict(book_text_list): # takes a list of strings, prints a 
         list_of_char_dict.append({"char": dict_key, "num": dict_value})
     
     list_of_char_dict.sort(reverse=True, key=sort_on)
-    print(list_of_char_dict)
+    return list_of_char_dict
 
 def sort_on(list_of_dict):
     return list_of_dict["num"]
     
 make_list_of_char_dict(test_list_words)
-
-#def sort_helper(char_dict):
-#    return char_dict["num"]
-
-#sorted_list_of_char_dict = list_of_char_dict.sort(reverse=True, key=sort_helper)
-
-#make_list_of_char_dict(test_list_words)
-#print(sorted_list_of_char_dict)

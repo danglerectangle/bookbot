@@ -3,4 +3,3 @@ books/
 
 #cache directory
 __pycache__/
-*.pyc
