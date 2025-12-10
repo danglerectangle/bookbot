@@ -1,3 +1,4 @@
+import sys
 from stats import get_num_words
 from stats import make_list_of_char_dict
 
@@ -16,7 +17,10 @@ def print_report(book_path, text):
     print("============= END ===============")
 
 def main():
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    book_path = sys.argv[1]
     text = get_book_text(book_path)
     print_report(book_path, text)
 
